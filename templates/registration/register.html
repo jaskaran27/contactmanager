@@ -1,0 +1,58 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Contact Manager - Register</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+		<link href="//getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/contacts/">Contact Manager</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="/contacts/">Contacts</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+		<div class="container" style="margin-top:70px;">
+			<form class="form-signin" role="form" method="post" action="">
+			{% csrf_token %}
+				<h2 class="form-signin-heading">Create an account</h2>
+				<input id="id_username" type="text" name="username" maxlength="30" class="form-control" placeholder="Username" required autofocus>
+				<br>
+				<input id="id_password1" type="password" name="password1" maxlength="4096" class="form-control" placeholder="Password" required>
+				<br>
+				<input id="id_password2" type="password" name="password2" maxlength="4096" class="form-control" placeholder="Password confirmation" required>
+				<input type="hidden" name="next" value="/contacts/" />
+				<br>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Create the account</button>
+			</form>
+			{% if form.errors %}
+			<ul style="list-style-type: none;padding:0; margin:0;">
+			{% for error in form.errors %}
+				{% if error == "username" %}
+				<li align="center" style="color:red;">Username already taken. Please choose another username.</li>
+				{% endif %}
+				{% if error == "password2" %}
+				<li align="center" style="color:red;">Password did not match. Please try again.</li>
+				{% endif %}
+			{% endfor %}
+			</ul>
+			{% endif %}
+		</div>
+	</body>
+</html>

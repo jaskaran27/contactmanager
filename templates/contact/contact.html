@@ -1,0 +1,66 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Contact Manager</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Contact Manager</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Contacts</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="/logout/">Logout</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+		<div class="container" style="margin-top:70px;">
+			<h2>Welcome, {{ user.username }}</h2>
+			{% if contact_list %}
+				{% for alphabet in pages %}
+					{% if alphabet.contacts %}
+						<div class="panel panel-primary">
+							<div class="panel-heading">{{ alphabet.letter }}</div>
+							{% for contact in alphabet.contacts %}
+								<div class="panel-content">
+									<ul style="list-style-type: none;">
+										<li><h4><a href="/contacts/{{ contact.id }}/" style="color:black;">{{ contact.first_name }}</a></h4></li>
+									</ul>
+								</div>
+							{% endfor %}
+						</div>
+					{% endif %}
+				{% endfor %}
+				<br>
+				<div align="center">
+					<a href="/contacts/add/" class="btn bt-lg btn-default">Add a Contact</a>
+				</div>
+				<br>
+				<br>
+			{% else %}
+				<br>
+				<h3>No contacts are available.</h3>
+				<br>
+				<div align="center">
+					<a href="/contacts/add/" class="btn bt-lg btn-default">Add a Contact</a>
+				</div>
+			{% endif %}
+		</div>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Contact Manager</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+		<link href="//getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="site-wrapper">
+			<div class="site-wrapper-inner">
+				<div class="cover-container">
+					<div class="masthead clearfix">
+						<div class="inner">
+							<h3 class="masthead-brand">Contact Manager</h3>
+							<ul class="nav masthead-nav">
+								<li class="active"><a href="#">Home</a></li>
+								<li><a href="/contacts/">Contacts</a></li>
+								{% if user.is_authenticated %}
+								<li><a href="/logout/">Logout</a></li>
+								{% endif %}
+							</ul>
+						</div>
+					</div>
+
+					<div class="inner cover">
+						<h1 class="cover-heading">Contact Manager</h1>
+						<p class="lead">Contact Manager is a personal contact management system where you can Add, Delete and Manage your contacts.</p>
+						<p class="lead">
+							{% if not user.is_authenticated %}
+							<a href="login/" class="btn btn-lg btn-default">Login</a>
+							{% endif %}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
