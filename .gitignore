@@ -215,3 +215,8 @@ pip-log.txt
 .mr.developer.cfg
 
 contactmanager/settings_local.py
+
+myenv
+venv
+*.pyc
+staticfiles
