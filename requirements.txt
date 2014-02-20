@@ -1,7 +1,7 @@
 Django==1.6.2
 distribute==0.6.34
 dj-database-url==0.2.2
-dj-static==0.0.5
+git+https://github.com/wnh/dj-static.git@feature/django-1.4-compat#egg=dj-static 
 django-toolbelt==0.0.1
 gunicorn==18.0
 psycopg2==2.5.2
