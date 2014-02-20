@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from django.contrib import admin
 admin.autodiscover()
@@ -14,3 +15,5 @@ urlpatterns = patterns('',
 	url(r'^contacts/(?P<contact_id>.+)/$', 'contact.views.contact_details', name='contact_details'),
 	url(r'^admin/', include(admin.site.urls)),
 )
+
+urlpatterns += staticfiles_urlpatterns()
