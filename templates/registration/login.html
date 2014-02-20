@@ -29,6 +29,7 @@
 			</div>
 		</div>
 		<div class="container" style="margin-top:70px;">
+			<a href="{% url socialauth_begin 'facebook' %}">Login with Facebook</a>
 			<form class="form-signin" role="form" method="post" action=".">
 			{% csrf_token %}
 				<h2 class="form-signin-heading">Sign in</h2>		

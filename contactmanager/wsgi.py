@@ -13,6 +13,9 @@ middleware here, or combine a Django application with an application of another
 framework.
 
 """
+import sys
+sys.path.insert(0, "/django-social-auth/")
+
 import os
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "contactmanager.settings")

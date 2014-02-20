@@ -1,10 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic.simple import redirect_to
 
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+	url(r'', include('social_auth.urls')),
 	url(r'^$', 'contact.views.landing', name='landing'),
 	url(r'^register/$', 'contact.views.register', name='register'),
 	url(r'^login/$', 'django.contrib.auth.views.login'),
