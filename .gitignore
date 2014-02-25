@@ -221,3 +221,4 @@ venv
 *.pyc
 staticfiles
 .env
+prompt.bat
