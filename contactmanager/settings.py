@@ -1,5 +1,5 @@
 # Django settings for contactmanager project.
-import os.path
+import os
 import dj_database_url
 
 DEBUG = False
